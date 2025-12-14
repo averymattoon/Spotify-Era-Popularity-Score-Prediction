@@ -76,4 +76,4 @@ Key references used in this project:
 
 ## License
 
-This project is for educational purposes as part of a machine learning course._
+This project is for educational purposes as part of a machine learning course.
