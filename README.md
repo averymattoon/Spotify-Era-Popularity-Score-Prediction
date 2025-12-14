@@ -1,7 +1,5 @@
 # Spotify-Era-Popularity-Score-Prediction
 
-# Spotify Bias Analysis Project
-
 **Authors:** Avery Mattoon, Leila Buchan  
 **Project:** Biases in Spotify Suggestion
 
