@@ -55,8 +55,7 @@ python model_assessment.py
 - **Other:** kNN
 
 ### Bias Analysis
-- Temporal bias by era (Pre-1950, 1950s-1960s, 1970s-1980s, 1990s-2000s, 2010s-2020s)
-- Cross-era model performance
+- Within-era versus cross-era model performance
 
 ## Key Research Questions
 
