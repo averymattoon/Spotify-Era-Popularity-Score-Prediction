@@ -12,6 +12,7 @@ This project analyzes temporal biases in Spotify's music popularity prediction u
 ```
 Spotify-Era-Popularity-Score-Prediction/
 │
+├── tracks.csv                   # Our dataset ~(600k x 20), >100MB
 ├── preprocessing.py             # Data loading, cleaning, and feature selection
 ├── model_selection.py           # Training and evaluating models
 ├── model_assessment.py          # Using best model to explore bias
