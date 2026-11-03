@@ -28,6 +28,7 @@ audio_features = [
 ### Within-Era Model Training and Evaluation ###
 eras = ['Pre-1950', '1950s-1960s', '1970s-1980s', '1990s-2000s', '2010s-2020s']
 era_models = {}
+era_test_sets = {} # added to fix leakage - hold out 20%
 within_era_performance = {}
 
 for era in eras:
@@ -61,6 +62,7 @@ for era in eras:
     
     # Store results
     era_models[era] = model
+    era_test_sets[era] = (x_test, y_test)    # data leakage fix
     within_era_performance[era] = {
         'R²': r2,
         'RMSE': rmse,
@@ -91,11 +93,12 @@ for era_train in eras:
     model = era_models[era_train]
     
     for era_test in eras:
-        # Get test data from this era
-        test_data = df[df['era'] == era_test].dropna(subset=audio_features + ['popularity'])
-        
-        x_test = test_data[audio_features]
-        y_test = test_data['popularity']
+        if era_test not in era_test_sets:    # fix data leakage
+            continue
+
+        # Evaluate on the held-out test split of the test era. Every model is scored
+        # on the same rows, and no model is ever scored on rows it was trained on.
+        x_test, y_test = era_test_sets[era_test]
         
         # Predict using the train era's model
         y_pred = model.predict(x_test)
