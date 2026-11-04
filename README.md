@@ -76,13 +76,16 @@ Spotify-Era-Popularity-Score-Prediction/
 ├── preprocessing.py       # Cleaning, year extraction, era assignment
 ├── model_selection.py     # Compares 7 regression models on pooled data
 ├── model_assessment.py    # Per-era Random Forests, transfer matrix, feature importance
+├── requirements.txt
+├── cross_era_transfer_matrix.png
+├── feature_importance_evolution.png
 └── README.md
 ```
 
 ## Usage
 
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
+pip install -r requirements.txt
 python3 preprocessing.py      # writes tracks_cleaned.csv
 python3 model_selection.py    # writes model_comparison_detailed.csv, model_comparison.png
 python3 model_assessment.py   # writes within_era_performance.csv, cross_era_performance.csv,
