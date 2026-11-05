@@ -8,7 +8,7 @@ Can a model trained on a song's audio features predict its popularity, and does 
 
 1. **Audio features predict popularity only weakly within an era.** A Random Forest trained and tested within a single era explains between 9% and 33% of the variance in popularity (held-out R² of 0.09 to 0.33).
 2. **Models do not transfer across eras.** A model trained on one era and applied to another does worse than simply predicting that era's average popularity. Every off-diagonal R² is negative except one, which is essentially zero.
-3. **Pooled models mostly learn the era.** Trained on all eras together, Random Forest reaches a test R² of 0.34, higher than most of the within-era scores. Average popularity differs sharply by era, and some audio features (such as acousticness) track recording era, so much of the pooled model's accuracy comes from placing a song in its era rather than ranking songs within it.
+3. **Pooled models mostly learn the era.** Trained on all eras together, Random Forest reaches a test R² of 0.34, higher than most of the within-era scores. Average popularity differs sharply by era, and some audio features (such as acousticness) track recording era, so much of the pooled model's accuracy comes from placing a song in its era rather than ranking songs within it. A baseline that predicts each era’s average popularity reaches a test R² of 0.339, essentially the same as the Random Forest (0.340).
 4. **What predicts popularity changes over time.** The most important audio feature shifts from speechiness (before 1950) to acousticness (1950s–80s), loudness (1990s–2000s) and instrumentalness (2010s–20s).
 
 For a recommendation system, this means one popularity model trained on recent music should not be assumed to treat older catalogs fairly.
